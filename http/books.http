@@ -11,3 +11,20 @@ Content-Type: application/json
 
 GET http://localhost:3000/books
 Content-Type: application/json
+
+###
+
+PUT http://localhost:3000/books/61ffa34bc38211da97746efb
+Content-Type: application/json
+
+{
+  "title": "Книга 5",
+  "description": "Описание книги 5",
+  "authors": "Автор книги 5"
+}
+
+###
+
+DELETE http://localhost:3000/books/61ffa34bc38211da97746efb
+Content-Type: application/json
+
