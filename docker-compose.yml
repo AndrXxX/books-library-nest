@@ -26,6 +26,7 @@ services:
 
   library:
     build: ./library
+    command: /bin/sh -c "npm install && npm run start"
     expose:
       - 3000
     ports:
@@ -37,5 +38,7 @@ services:
       - COOKIE_SECRET=${COOKIE_SECRET:-COOKIE_SECRET}
     depends_on:
       - mongodb
+    volumes:
+      - ./library/app:/app
     links:
       - mongodb
