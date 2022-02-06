@@ -2,12 +2,13 @@
 
 ## Блок 2. Nest.js
 
-Домашнее задание к занятию «2.2. Инверсия зависимостей,провайдеры, middleware в NestJS»
+Домашнее задание к занятию «2.3 Подключение базы данных к NestJS (модуль для MongoDB)»
 
-ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/006-nestjs-ext).
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/008-nestjs-db).
 
 Запуск:
-1) Установить зависимости: `npm install`
-2) Запустить: `npm run start`
+1) Поместить в `./config/.local.env` настройки (пример файла: `.local.env.example`).
+2) Запустить: `docker-compose --env-file ./config/.local.env up -d --build`
 3) Приложение будет доступно по адресу `http://localhost:3000/`
-4) Примеры запросов доступны в файле [books.http](http/books.http)
+
+Примеры запросов находятся в [http/books.http](http/books.http) (можно запускать в PHPStorm)
