@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { BooksModule } from "src/modules/books/books.module";
+import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MongooseModule } from'@nestjs/mongoose';
+import { BooksModule } from "./modules/books/books.module";
 
 const modules = [
   BooksModule,
