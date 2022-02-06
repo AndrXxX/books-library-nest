@@ -8,7 +8,7 @@
 
 Запуск:
 1) Поместить в `./config/.local.env` настройки (пример файла: `.local.env.example`).
-2) Запустить: `docker-compose --env-file ./config/.local.env up -d --build`
+2) Запустить: `docker-compose up -d`
 3) Приложение будет доступно по адресу `http://localhost:3000/`
 
 Примеры запросов находятся в [http/books.http](http/books.http) (можно запускать в PHPStorm)
