@@ -2,47 +2,47 @@
 
 ## Блок 2: Nest.js
 
-Домашнее задание к занятию «2.2. Погружение в Nest.js»
+Домашнее задание к занятию «2.3. Подключение базы данных к Nest.js: модуль для MongoDB»
 
-ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/006-nestjs-ext).
-
-### Запуск:
-
-#### 1. Установить зависимости
-
-```bash
-$ npm install
-```
-
-#### 2. Запуск приложения
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/008-nestjs-db).
 
 <details>
-<summary>Запуск тестов</summary>
+<summary>Включает в себя предыдущие задания</summary>
 
-```bash
-# unit tests
-$ npm run test
+<details>
 
-# e2e tests
-$ npm run test:e2e
+<summary>Домашнее задание к занятию «2.2. Погружение в Nest.js»</summary>
 
-# test coverage
-$ npm run test:cov
-```
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/006-nestjs-ext).
 </details>
 
-#### 3. Приложение будет доступно по адресу [http://localhost:3002/](http://localhost:3002/)
-#### 4. Примеры запросов доступны в файле [books.http](books-library/http/books.http)
+</details>
+
+Использование:
+* `docker compose up`
+
+При стандартных настройках приложение будет доступно по адресу [http://localhost:3002/](http://localhost:3002/).
+
+Примеры запросов доступны в файле [books.http](books-library/http/books.http)
+
+Можно изменить настройки запуска docker-compose с помощью .env. Пример файла: [.env-example](config/.env.example)
+
+Нужно переименовать его в `.env` и запускать приложение добавив конфиг:
+* `docker compose --env-file config/.env up`
+
+<details>
+<summary>Описание настроек .env для docker-compose</summary>
+
+* `DB_NAME` - название БД
+* `DB_USERNAME` - имя пользователя
+* `DB_PASSWORD` - имя пользователя
+
+Важно! Вышеуказанные настройки корректно проинициализируются в MongoDB только при первом запуске.
+Если в дальнейшем их изменить, то эффекта не будет. Для применения нужно будет очистить папку `db` и после этого запускать `docker-compose`
+
+* `LIBRARY_SERVICE_PORT` - порт, по которому будет доступно приложение библиотека на локальном компьютере
+* `MONGODB_PORT` - внешний порт для подключения к MongoDb
+* `MONGO_EXPRESS_PORT` - внешний порт, по которому будет доступна админка MONGO EXPRESS
+</details>
 
 
