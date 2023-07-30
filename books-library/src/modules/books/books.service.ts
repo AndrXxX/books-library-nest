@@ -18,7 +18,7 @@ export class BooksService {
   }
 
   public findAll(): Promise<BookDocument[]> {
-    return this.BookModel.find().exec();
+    return this.BookModel.find().select('-__v').exec();
   }
 
   public update(id: string, data: iUpdateBookDto): Promise<BookDocument> | any {
