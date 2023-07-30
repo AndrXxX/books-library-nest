@@ -1,6 +1,6 @@
-# Домашние задания по курсу «NDTNF - TypeScript, Nest.js, Firebase»
+# Домашние задания по курсу «NDTNF - TypeScript, Nest.js, Yandex Cloud»
 
-## Блок 2. Nest.js
+## Блок 2: Nest.js
 
 Домашнее задание к занятию «2.2. Погружение в Nest.js»
 
