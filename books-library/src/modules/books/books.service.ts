@@ -12,21 +12,43 @@ export class BooksService {
     @InjectConnection() private connection: Connection,) {
   }
 
-  public create(data: iCreateBookDto): Promise<BookDocument> {
+  public async create(data: iCreateBookDto): Promise<BookDocument> {
     const book = new this.BookModel(data);
-    return book.save();
+    try {
+      await book.save();
+    } catch (e) {
+      console.error(e);
+    }
+    return book;
   }
 
-  public findAll(): Promise<BookDocument[]> {
-    return this.BookModel.find().select('-__v').exec();
+  public async findAll(): Promise<BookDocument[]> {
+    try {
+      return await this.BookModel.find().select('-__v').exec();
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
   }
 
-  public update(id: string, data: iUpdateBookDto): Promise<BookDocument> | any {
-    return this.BookModel.findOneAndUpdate({ _id: id }, data);
+  public async update(id: string, data: iUpdateBookDto): Promise<boolean> {
+    try {
+      await this.BookModel.findOneAndUpdate({ _id: id }, data);
+      return true;
+    } catch (e) {
+      console.error(e);
+      return false;
+    }
   }
 
-  public delete(id: string): Promise<BookDocument> | any {
-    return this.BookModel.findOneAndRemove({ _id: id });
+  public async delete(id: string): Promise<boolean> {
+    try {
+      await  this.BookModel.findOneAndRemove({ _id: id });
+      return true;
+    } catch (e) {
+      console.error(e);
+      return false;
+    }
   }
 
 }

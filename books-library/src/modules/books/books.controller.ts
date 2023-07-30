@@ -4,7 +4,6 @@ import { IParamId } from "src/interfaces/param-id.interface";
 import { BooksService } from "./books.service";
 import { iCreateBookDto } from "./interfaces/book-create.interface";
 import { iUpdateBookDto } from "./interfaces/book-update.interface";
-import { BookDocument } from "./mongo.schemas/book.schema";
 
 @Controller('books')
 export class BooksController {
@@ -13,7 +12,7 @@ export class BooksController {
 
   @Post()
   async create(@Body() createBookDto: iCreateBookDto) {
-    await this.booksService.create(createBookDto);
+    return await this.booksService.create(createBookDto);
   }
 
   @Get()
@@ -25,12 +24,12 @@ export class BooksController {
   public update(
     @Param() { id }: IParamId,
     @Body() body: iUpdateBookDto,
-  ): Promise<BookDocument> {
+  ) {
     return this.booksService.update(id as string, body);
   }
 
   @Delete(':id')
-  public delete(@Param() { id }: IParamId): Promise<BookDocument> {
+  public delete(@Param() { id }: IParamId) {
     return this.booksService.delete(id as string);
   }
 }
