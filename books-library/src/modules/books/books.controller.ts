@@ -9,11 +9,11 @@ export class BooksController {
 
   @Post()
   async create(@Body() createBookDto: iBook) {
-    this.booksService.create(createBookDto);
+    await this.booksService.create(createBookDto);
   }
 
   @Get()
   async findAll(): Promise<iBook[]> {
-    return this.booksService.findAll();
+    return await this.booksService.findAll();
   }
 }

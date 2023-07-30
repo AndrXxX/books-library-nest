@@ -1,16 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import { iBook } from "src/interfaces/book.interface";
+import { InjectConnection, InjectModel } from "@nestjs/mongoose";
+import { Connection, Model } from "mongoose";
+import { iCreateBookDto } from "./interfaces/book-create.interface";
+import { Book, BookDocument } from "./mongo.schemas/book.schema";
 
 @Injectable()
 export class BooksService {
-  private readonly books: iBook[] = [];
-
-  create(book: iBook) {
-    this.books.push(book);
+  constructor(
+    @InjectModel(Book.name) private BookModel: Model<BookDocument>,
+    @InjectConnection() private connection: Connection,) {
   }
 
-  findAll(): iBook[] {
-    return this.books;
+  public create(data: iCreateBookDto): Promise<BookDocument> {
+    const book = new this.BookModel(data);
+    return book.save();
+  }
+
+  public findAll(): Promise<BookDocument[]> {
+    return this.BookModel.find().exec();
   }
 
 }
