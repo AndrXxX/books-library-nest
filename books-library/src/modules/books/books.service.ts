@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectConnection, InjectModel } from "@nestjs/mongoose";
 import { Connection, Model } from "mongoose";
 import { iCreateBookDto } from "./interfaces/book-create.interface";
+import { iUpdateBookDto } from "./interfaces/book-update.interface";
 import { Book, BookDocument } from "./mongo.schemas/book.schema";
 
 @Injectable()
@@ -18,6 +19,14 @@ export class BooksService {
 
   public findAll(): Promise<BookDocument[]> {
     return this.BookModel.find().exec();
+  }
+
+  public update(id: string, data: iUpdateBookDto): Promise<BookDocument> | any {
+    return this.BookModel.findOneAndUpdate({ _id: id }, data);
+  }
+
+  public delete(id: string): Promise<BookDocument> | any {
+    return this.BookModel.findOneAndRemove({ _id: id });
   }
 
 }
