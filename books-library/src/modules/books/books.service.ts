@@ -1,16 +1,54 @@
 import { Injectable } from '@nestjs/common';
-import { iBook } from "src/interfaces/book.interface";
+import { InjectConnection, InjectModel } from "@nestjs/mongoose";
+import { Connection, Model } from "mongoose";
+import { iCreateBookDto } from "./interfaces/book-create.interface";
+import { iUpdateBookDto } from "./interfaces/book-update.interface";
+import { Book, BookDocument } from "./mongo.schemas/book.schema";
 
 @Injectable()
 export class BooksService {
-  private readonly books: iBook[] = [];
-
-  create(book: iBook) {
-    this.books.push(book);
+  constructor(
+    @InjectModel(Book.name) private BookModel: Model<BookDocument>,
+    @InjectConnection() private connection: Connection,) {
   }
 
-  findAll(): iBook[] {
-    return this.books;
+  public async create(data: iCreateBookDto): Promise<BookDocument> {
+    const book = new this.BookModel(data);
+    try {
+      await book.save();
+    } catch (e) {
+      console.error(e);
+    }
+    return book;
+  }
+
+  public async findAll(): Promise<BookDocument[]> {
+    try {
+      return await this.BookModel.find().select('-__v').exec();
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
+  }
+
+  public async update(id: string, data: iUpdateBookDto): Promise<boolean> {
+    try {
+      await this.BookModel.findOneAndUpdate({ _id: id }, data);
+      return true;
+    } catch (e) {
+      console.error(e);
+      return false;
+    }
+  }
+
+  public async delete(id: string): Promise<boolean> {
+    try {
+      await  this.BookModel.findOneAndRemove({ _id: id });
+      return true;
+    } catch (e) {
+      console.error(e);
+      return false;
+    }
   }
 
 }

@@ -1,13 +1,29 @@
-POST http://localhost:3000/books
+POST http://localhost:3002/books
 Content-Type: application/json
 
 {
   "title": "Книга 1",
   "description": "Описание книги 1",
-  "authors": "Автор книги 1"
+  "authors": ["Автор книги 1"]
 }
 
 ###
 
-GET http://localhost:3000/books
+GET http://localhost:3002/books
+Content-Type: application/json
+
+###
+
+PUT http://localhost:3002/books/64c6a8d7cd922f78e31a3548
+Content-Type: application/json
+
+{
+  "title": "Книга 5",
+  "description": "Описание книги 5",
+  "authors": ["Автор книги 5"]
+}
+
+###
+
+DELETE http://localhost:3002/books/64c6a8d7cd922f78e31a3548
 Content-Type: application/json

@@ -1,4 +1,4 @@
-export interface iBook {
+export interface iCreateBookDto {
   title: string;
   description?: string;
   authors?: string[];
