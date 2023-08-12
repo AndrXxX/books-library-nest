@@ -8,16 +8,25 @@ export class RxjsExampleService {
   private readonly gitlabUrl = 'https://gitlab.com/api/v4/projects?search=';
 
   public async searchRepo(text: string): Promise<any> {
-    const firstSource$ = from((await axios.get(`${this.githubUrl}${text}`)).data.items)
+    const results = [];
+    merge(
+      await this.getGithubStream(text, 5),
+      await this.getGithubStream(text, 5),
+    )
+      .subscribe((value) => results.push(value));
+    return results;
+  }
+
+  private async getGithubStream(text: string, count: number) {
+    return from((await axios.get(`${this.githubUrl}${text}`)).data.items)
       .pipe(map((item: any) => ({ title: item.name, url: item.html_url, source: "github" })))
-      .pipe(take(5));
-    const secondSource$ = from((await axios.get(`${this.gitlabUrl}${text}`)).data)
+      .pipe(take(count));
+  }
+
+  private async getGitlabStream(text: string, count: number) {
+    return from((await axios.get(`${this.gitlabUrl}${text}`)).data)
       .pipe(map((item: any) => ({ title: item.name, url: item.web_url, source: "gitlab" })))
-      .pipe(take(5))
-    const common$ = merge(firstSource$, secondSource$);
-    const items = [];
-    common$.subscribe((value) => items.push(value));
-    return items;
+      .pipe(take(count))
   }
 
 }
