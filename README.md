@@ -1,10 +1,11 @@
-# Домашние задания по курсу «NDTNF - TypeScript, Nest.js, Yandex Cloud»
+## Домашние задания по курсу «NDTNF - TypeScript, Nest.js, Yandex Cloud»
 
-## Блок 2: Nest.js
+### Блок 2: Nest.js
 
-Домашнее задание к занятию «2.3. Подключение базы данных к Nest.js: модуль для MongoDB»
 
-ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/008-nestjs-db).
+#### Домашнее задание к занятию «2.4. Потоки RxJS»
+
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/009-rxjs).
 
 <details>
 <summary>Включает в себя предыдущие задания</summary>
@@ -14,6 +15,13 @@
 <summary>Домашнее задание к занятию «2.2. Погружение в Nest.js»</summary>
 
 ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/006-nestjs-ext).
+</details>
+
+<details>
+
+<summary>Домашнее задание к занятию «2.3. Подключение базы данных к Nest.js: модуль для MongoDB»</summary>
+
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/008-nestjs-db).
 </details>
 
 </details>
