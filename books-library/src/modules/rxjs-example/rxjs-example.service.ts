@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import axios from "axios";
-import { from, map, merge, mergeAll, take } from "rxjs";
+import { firstValueFrom, from, map, merge, mergeAll, take, toArray } from "rxjs";
 
 @Injectable()
 export class RxjsExampleService {
@@ -8,11 +8,10 @@ export class RxjsExampleService {
   private readonly gitlabUrl = 'https://gitlab.com/api/v4/projects?search=';
 
   public async searchRepo(text: string): Promise<any> {
-    const results = [];
-    const data$ = merge(this.getGithubStream(text, 5), this.getGitlabStream(text, 5));
-    data$.subscribe((value) => results.push(value));
-    await data$.toPromise(); // TODO
-    return results;
+    const data$ = merge(this.getGithubStream(text, 5), this.getGitlabStream(text, 5))
+      .pipe(toArray());
+    data$.subscribe(() => {});
+    return await firstValueFrom(data$);
   }
 
   private getGithubStream(text: string, count: number) {
