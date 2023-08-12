@@ -7,6 +7,12 @@
 
 ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/009-rxjs).
 
+Быстрый переход к файлам с решением:
+[rxjs-example.service.ts](books-library/src/modules/rxjs-example/rxjs-example.service.ts)
+
+Можно проверить результат командой (`поисковой_запрос` заменить на необходимую фразу):
+`curl http://localhost:3002/rxjs-example/repositories/поисковой_запрос`
+
 <details>
 <summary>Включает в себя предыдущие задания</summary>
 
