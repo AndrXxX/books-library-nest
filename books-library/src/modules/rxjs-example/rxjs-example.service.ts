@@ -11,7 +11,7 @@ export class RxjsExampleService {
     const results = [];
     merge(
       await this.getGithubStream(text, 5),
-      await this.getGithubStream(text, 5),
+      await this.getGitlabStream(text, 5),
     )
       .subscribe((value) => results.push(value));
     return results;
