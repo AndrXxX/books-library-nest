@@ -3,15 +3,15 @@
 ### Блок 2: Nest.js
 
 
-#### Домашнее задание к занятию «2.4. Потоки RxJS»
+#### Домашнее задание к занятию «2.5. Валидация и обработка ошибок. Interceptors, pipes»
 
-ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/009-rxjs).
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/010-nestjs-validation).
 
 Быстрый переход к файлам с решением:
-[rxjs-example.service.ts](books-library/src/modules/rxjs-example/rxjs-example.service.ts)
-
-Можно проверить результат командой (`поисковой_запрос` заменить на необходимую фразу):
-`curl http://localhost:3002/rxjs-example/repositories/поисковой_запрос`
+* Задание 1. [format-response.interceptor.ts](books-library/src/interceptors/format-response.interceptor.ts)
+* Задание 2. [id.validation.pipe.ts](books-library/src/validators/id.validation.pipe.ts)
+* Задание 3. [dto.validation.pipe.ts](books-library/src/validators/dto.validation.pipe.ts)
+* Задание 4. [unified.exception.filter.ts](books-library/src/filters/unified.exception.filter.ts)
 
 <details>
 <summary>Включает в себя предыдущие задания</summary>
@@ -28,6 +28,18 @@
 <summary>Домашнее задание к занятию «2.3. Подключение базы данных к Nest.js: модуль для MongoDB»</summary>
 
 ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/008-nestjs-db).
+</details>
+
+<details>
+<summary>Домашнее задание к занятию «2.4. Потоки RxJS»</summary>
+
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/009-rxjs).
+
+Быстрый переход к файлам с решением:
+[rxjs-example.service.ts](books-library/src/modules/rxjs-example/rxjs-example.service.ts)
+
+Можно проверить результат командой (`поисковой_запрос` заменить на необходимую фразу):
+`curl http://localhost:3002/rxjs-example/repositories/поисковой_запрос`
 </details>
 
 </details>
