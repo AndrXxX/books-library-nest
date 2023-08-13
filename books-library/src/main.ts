@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
-import { FormatResponseInterceptorInterceptor } from "src/app.format-response.interceptor";
 import { UnifiedExceptionFilter } from "src/filters/unified.exception.filter";
+import { FormatResponseInterceptorInterceptor } from "src/interceptors/format-response.interceptor";
 import { AppModule } from './app.module';
 import config from './config';
 
