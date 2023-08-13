@@ -1,6 +1,6 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor, } from '@nestjs/common';
-import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { map, Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class FormatResponseInterceptorInterceptor implements NestInterceptor {
@@ -8,7 +8,7 @@ export class FormatResponseInterceptorInterceptor implements NestInterceptor {
     return next
       .handle()
       .pipe(
-        tap((data: any) => of({ status: "success", data })),
+        map((data: any) => ({ status: "success", data })),
         catchError((err: any) => of({ status: "fail", data: err?.message || "Ошибка при выполнении запроса" })),
       );
   }
