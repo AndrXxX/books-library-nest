@@ -15,7 +15,7 @@ export class UsersController {
 
   @Post("signup")
   async signup(@Body(DtoValidationPipe) createUserDto: CreateUserDto) {
-    return await this.usersService.create(createUserDto);
+    await this.usersService.create(createUserDto);
   }
 
   @UseGuards(LocalAuthGuard)
