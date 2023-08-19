@@ -1,9 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 import { iUser } from "src/interfaces/user.interface";
-import { Book } from "src/modules/books/mongo.schemas/book.schema";
 
-export type UserDocument = HydratedDocument<Book>;
+export type UserDocument = HydratedDocument<User>;
 
 @Schema()
 export class User implements iUser {
