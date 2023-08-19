@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { hashSync, compareSync } from "bcrypt-ts"
+import * as bcrypt from 'bcrypt';
 
 const saltRounds = 10;
 
@@ -7,13 +7,13 @@ const saltRounds = 10;
 export class GenerateHashService {
 
   isValid(password, hash) {
-    return compareSync(password, hash);
+    return bcrypt.compareSync(password, hash);
   }
 
   generate(password) {
     if (!password) {
       throw new Error("Пароль не может быть пустым");
     }
-    return hashSync(password, saltRounds);
+    return bcrypt.hashSync(password, saltRounds);
   }
 }
