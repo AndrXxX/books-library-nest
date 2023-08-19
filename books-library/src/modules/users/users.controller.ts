@@ -4,7 +4,7 @@ import { DtoValidationPipe } from "src/validators/dto.validation.pipe";
 import { CreateUserDto } from "./interfaces/user-create.interface";
 import { SigninUserDto } from "./interfaces/user-signin.interface";
 
-@Controller('users')
+@Controller('api/users')
 export class UsersController {
   constructor(private usersService: UsersService) {
   }
