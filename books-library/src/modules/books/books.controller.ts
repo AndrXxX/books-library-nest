@@ -1,11 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { iBook } from "src/interfaces/book.interface";
+import { JwtAuthGuard } from "src/modules/auth/guards/jwt.auth.guard";
 import { DtoValidationPipe } from "src/validators/dto.validation.pipe";
 import { IdValidationPipe } from "src/validators/id.validation.pipe";
 import { BooksService } from "./books.service";
 import { iCreateBookDto } from "./interfaces/book-create.interface";
 import { UpdateBookDto } from "./interfaces/book-update.interface";
 
+@UseGuards(JwtAuthGuard)
 @Controller('books')
 export class BooksController {
   constructor(private booksService: BooksService) {

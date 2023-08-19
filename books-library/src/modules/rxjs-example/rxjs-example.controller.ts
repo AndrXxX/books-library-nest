@@ -1,6 +1,8 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from "src/modules/auth/guards/jwt.auth.guard";
 import { RxjsExampleService } from "./rxjs-example.service";
 
+@UseGuards(JwtAuthGuard)
 @Controller('rxjs-example')
 export class RxjsExampleController {
   constructor(
