@@ -10,8 +10,11 @@ export class User implements iUser {
   @Prop( { required: [true, 'Не указан email'], unique: [true, 'Пользователь с таким email уже есть'] })
   email: string;
 
-  @Prop( { required: [true, 'Не указан firstName'] })
+  @Prop( { required: [true, 'Не указано имя'] })
   firstName: string;
+
+  @Prop( { required: [true, 'Не указана фамилия'] })
+  lastName: string;
 
   @Prop( { required: [true, 'Не указан пароль'] })
   password: string;
