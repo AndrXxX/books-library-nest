@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectConnection, InjectModel } from "@nestjs/mongoose";
 import { Connection, Model } from "mongoose";
 import { iCreateBookDto } from "./interfaces/book-create.interface";
-import { iUpdateBookDto } from "./interfaces/book-update.interface";
+import { UpdateBookDto } from "./interfaces/book-update.interface";
 import { Book, BookDocument } from "./mongo.schemas/book.schema";
 
 @Injectable()
@@ -31,7 +31,7 @@ export class BooksService {
     }
   }
 
-  public async update(id: string, data: iUpdateBookDto): Promise<boolean> {
+  public async update(id: string, data: UpdateBookDto): Promise<boolean> {
     try {
       await this.BookModel.findOneAndUpdate({ _id: id }, data);
       return true;
