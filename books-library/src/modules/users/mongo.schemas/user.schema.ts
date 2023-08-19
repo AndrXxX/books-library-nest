@@ -7,7 +7,7 @@ export type UserDocument = HydratedDocument<Book>;
 
 @Schema()
 export class User implements iUser {
-  @Prop( { required: [true, 'Не указан email'] })
+  @Prop( { required: [true, 'Не указан email'], unique: [true, 'Пользователь с таким email уже есть'] })
   email: string;
 
   @Prop( { required: [true, 'Не указан firstName'] })
