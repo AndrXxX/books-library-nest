@@ -1,4 +1,5 @@
 import { Request, Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { AuthService } from "src/modules/auth/auth.service";
 import { LocalAuthGuard } from "src/modules/auth/guards/local.auth.guard";
 import { UsersService } from "src/modules/users/users.service";
 import { DtoValidationPipe } from "src/validators/dto.validation.pipe";
@@ -7,8 +8,10 @@ import { SigninUserDto } from "./interfaces/user-signin.interface";
 
 @Controller('api/users')
 export class UsersController {
-  constructor(private usersService: UsersService) {
-  }
+  constructor(
+    private usersService: UsersService,
+    private authService: AuthService,
+  ) {}
 
   @Post("signup")
   async signup(@Body(DtoValidationPipe) createUserDto: CreateUserDto) {
@@ -21,6 +24,10 @@ export class UsersController {
     @Body(DtoValidationPipe) signinUserDto: SigninUserDto,
     @Request() req,
   ) {
-    return signinUserDto; // TODO: return token
+    return this.authService.createToken({
+      id: req.user.id,
+      email: req.user.email,
+      firstName: req.user.firstName,
+    });
   }
 }
