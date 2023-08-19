@@ -32,6 +32,7 @@ services:
     working_dir: /app
     environment:
       - PORT=80
+      - JWT_SECRET=${JWT_SECRET:-jwtSecret}
       - DB_URL=mongodb://${DB_USERNAME:-root}:${DB_PASSWORD:-password}@mongodb:${MONGODB_PORT:-27017}/${DB_NAME:-library}
     ports:
       - ${LIBRARY_SERVICE_PORT:-3002}:80
