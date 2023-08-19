@@ -1,4 +1,5 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Request, Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { LocalAuthGuard } from "src/modules/auth/guards/local.auth.guard";
 import { UsersService } from "src/modules/users/users.service";
 import { DtoValidationPipe } from "src/validators/dto.validation.pipe";
 import { CreateUserDto } from "./interfaces/user-create.interface";
@@ -14,8 +15,12 @@ export class UsersController {
     return await this.usersService.create(createUserDto);
   }
 
+  @UseGuards(LocalAuthGuard)
   @Post("signin")
-  async signin(@Body(DtoValidationPipe) signinUserDto: SigninUserDto) {
-    console.log(signinUserDto); // TODO
+  async signin(
+    @Body(DtoValidationPipe) signinUserDto: SigninUserDto,
+    @Request() req,
+  ) {
+    return signinUserDto; // TODO: return token
   }
 }
