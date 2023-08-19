@@ -17,8 +17,8 @@ export class AuthService {
     return null;
   }
 
-  async validateUserByCredentials(username: string, password: string): Promise<any> {
-    const user = await this.usersService.findOne({ username });
+  async validateUserByCredentials(email: string, password: string): Promise<any> {
+    const user = await this.usersService.findOne({ email });
     if (user && user.password === password) { // TODO
       const { password, ...result } = user;
       return result;
