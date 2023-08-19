@@ -3,15 +3,9 @@
 ### Блок 2: Nest.js
 
 
-#### Домашнее задание к занятию «2.5. Валидация и обработка ошибок. Interceptors, pipes»
+#### Домашнее задание к занятию «2.6. Аутентификация в NestJS, Passport.js, Guards»
 
-ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/010-nestjs-validation).
-
-Быстрый переход к файлам с решением:
-* Задание 1. [format-response.interceptor.ts](books-library/src/interceptors/format-response.interceptor.ts)
-* Задание 2. [id.validation.pipe.ts](books-library/src/validators/id.validation.pipe.ts)
-* Задание 3. [dto.validation.pipe.ts](books-library/src/validators/dto.validation.pipe.ts)
-* Задание 4. [unified.exception.filter.ts](books-library/src/filters/unified.exception.filter.ts)
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/011-nestjs-authentication).
 
 <details>
 <summary>Включает в себя предыдущие задания</summary>
@@ -40,6 +34,18 @@
 
 Можно проверить результат командой (`поисковой_запрос` заменить на необходимую фразу):
 `curl http://localhost:3002/rxjs-example/repositories/поисковой_запрос`
+</details>
+
+<details>
+<summary>Домашнее задание к занятию «2.5. Валидация и обработка ошибок. Interceptors, pipes»</summary>
+
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/010-nestjs-validation).
+
+Быстрый переход к файлам с решением:
+* Задание 1. [format-response.interceptor.ts](books-library/src/interceptors/format-response.interceptor.ts)
+* Задание 2. [id.validation.pipe.ts](books-library/src/validators/id.validation.pipe.ts)
+* Задание 3. [dto.validation.pipe.ts](books-library/src/validators/dto.validation.pipe.ts)
+* Задание 4. [unified.exception.filter.ts](books-library/src/filters/unified.exception.filter.ts)
 </details>
 
 </details>
