@@ -9,7 +9,10 @@ import { BooksService } from './books.service';
 
 describe('Cats', () => {
   let app: INestApplication;
-  let booksService = { findAll: () => ['test'] };
+  let booksService = {
+    findAll: () => ['test'],
+    create: () => ({}),
+  };
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
@@ -33,6 +36,13 @@ describe('Cats', () => {
       .get('/books')
       .expect(200)
       .expect(booksService.findAll());
+  });
+
+  it(`/POST books`, () => {
+    return request(app.getHttpServer())
+      .post('/books')
+      .expect(201)
+      .expect(booksService.create());
   });
 
   afterAll(async () => {
