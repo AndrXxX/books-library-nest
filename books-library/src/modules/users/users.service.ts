@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { InjectConnection, InjectModel } from "@nestjs/mongoose";
-import { Connection, Model } from "mongoose";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
 import { GenerateHashService } from "src/modules/auth/generate-hash.service";
 import { CreateUserDto } from "./interfaces/user-create.interface";
 import { User, UserDocument } from "./mongo.schemas/user.schema";
@@ -9,7 +9,6 @@ import { User, UserDocument } from "./mongo.schemas/user.schema";
 export class UsersService {
     constructor(
       @InjectModel(User.name) private UserModel: Model<UserDocument>,
-      @InjectConnection() private connection: Connection,
       private hashService: GenerateHashService,
     ) {}
 
