@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
 import { BookComment, BookCommentDocument } from "src/modules/book-comments/mongo.schemas/book-comment.schema";
-import { iCreateBookCommentDto } from "./interfaces/book-comment-create.interface";
+import { CreateBookCommentDto } from "./interfaces/book-comment-create.interface";
 
 @Injectable()
 export class BookCommentsService {
@@ -10,7 +10,7 @@ export class BookCommentsService {
     @InjectModel(BookComment.name) private BookCommentModel: Model<BookCommentDocument>,
   ) {}
 
-  public async create(data: iCreateBookCommentDto): Promise<BookCommentDocument> {
+  public async create(data: CreateBookCommentDto): Promise<BookCommentDocument> {
     const comment = new this.BookCommentModel(data);
     try {
       await comment.save();
