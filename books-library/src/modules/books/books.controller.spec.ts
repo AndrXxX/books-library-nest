@@ -31,6 +31,11 @@ describe("BooksController", () => {
     booksService = await app.get<BooksService>(BooksService);
   });
 
+  it('should be defined', () => {
+    expect(booksController).toBeDefined();
+    expect(booksService).toBeDefined();
+  });
+
   describe("findAll", () => {
     it("should return an array of Books", async () => {
       const result: BookDocument[] = [new Book() as BookDocument];
