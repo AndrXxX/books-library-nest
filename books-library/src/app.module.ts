@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AppGateway } from "src/app.gateway";
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import config from './config';
@@ -16,6 +17,7 @@ const modules = [
   UsersModule,
   AuthModule,
   BookCommentsModule,
+  AppGateway,
 ];
 
 @Module({
