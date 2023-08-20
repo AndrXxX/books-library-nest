@@ -3,9 +3,14 @@
 ### Блок 2: Nest.js
 
 
-#### Домашнее задание к занятию «2.6. Аутентификация в NestJS, Passport.js, Guards»
+#### Домашнее задание к занятию «2.7. Тестирование. Библиотека Jest»
 
-ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/011-nestjs-authentication).
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/012-Test-Jest).
+
+Файлы с тестами:
+* [books.service.spec.ts](books-library/src/modules/books/books.service.spec.ts)
+* [books.controller.spec.ts](books-library/src/modules/books/books.controller.spec.ts)
+* [e2e.books.service.spec.ts](books-library/src/modules/books/e2e.books.service.spec.ts)
 
 <details>
 <summary>Включает в себя предыдущие задания</summary>
@@ -46,6 +51,12 @@
 * Задание 2. [id.validation.pipe.ts](books-library/src/validators/id.validation.pipe.ts)
 * Задание 3. [dto.validation.pipe.ts](books-library/src/validators/dto.validation.pipe.ts)
 * Задание 4. [unified.exception.filter.ts](books-library/src/filters/unified.exception.filter.ts)
+</details>
+
+<details>
+<summary>Домашнее задание к занятию «2.6. Аутентификация в NestJS, Passport.js, Guards»</summary>
+
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/011-nestjs-authentication).
 </details>
 
 </details>
