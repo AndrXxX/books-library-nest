@@ -12,6 +12,7 @@ describe('Cats', () => {
   let booksService = {
     findAll: () => ['test'],
     create: () => ({}),
+    update: () => true,
   };
 
   beforeAll(async () => {
@@ -43,6 +44,14 @@ describe('Cats', () => {
       .post('/books')
       .expect(201)
       .expect(booksService.create());
+  });
+
+  it(`/PUT books/id`, () => {
+    return request(app.getHttpServer())
+      .put('/books/id', )
+      .send({ title: "more 10 symbols" })
+      .expect(200)
+      .expect(String(booksService.update()));
   });
 
   afterAll(async () => {
