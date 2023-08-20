@@ -17,7 +17,6 @@ const modules = [
   UsersModule,
   AuthModule,
   BookCommentsModule,
-  AppGateway,
 ];
 
 @Module({
@@ -25,6 +24,6 @@ const modules = [
     ...modules,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AppGateway],
 })
 export class AppModule {}
