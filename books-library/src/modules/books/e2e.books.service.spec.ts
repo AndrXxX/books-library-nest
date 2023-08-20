@@ -13,6 +13,7 @@ describe('Cats', () => {
     findAll: () => ['test'],
     create: () => ({}),
     update: () => true,
+    delete: () => true,
   };
 
   beforeAll(async () => {
@@ -52,6 +53,13 @@ describe('Cats', () => {
       .send({ title: "more 10 symbols" })
       .expect(200)
       .expect(String(booksService.update()));
+  });
+
+  it(`/DELETE books/id`, () => {
+    return request(app.getHttpServer())
+      .delete('/books/id', )
+      .expect(200)
+      .expect(String(booksService.delete()));
   });
 
   afterAll(async () => {
