@@ -12,7 +12,7 @@ export class AppGateway {
   server: Server;
 
   @SubscribeMessage('getAllComments')
-  async handleMessage(@MessageBody() bookId: string) {
+  async handleMessage(@MessageBody("bookId") bookId: string) {
     return await this.commentsService.findAllBookComment(bookId);
   }
 }
