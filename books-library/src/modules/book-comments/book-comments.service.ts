@@ -20,7 +20,7 @@ export class BookCommentsService {
     return comment;
   }
 
-  public async findAll(bookId: string): Promise<BookCommentDocument[]> {
+  public async findAllBookComment(bookId: string): Promise<BookCommentDocument[]> {
     try {
       return await this.BookCommentModel.find({ bookId }).select('-__v').exec();
     } catch (e) {
