@@ -1,5 +1,6 @@
 import { MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
+import { IdValidationPipe } from "src/validators/id.validation.pipe";
 import { BookCommentsService } from "./modules/book-comments/book-comments.service";
 
 @WebSocketGateway({ cors: true })
@@ -12,7 +13,7 @@ export class AppGateway {
   server: Server;
 
   @SubscribeMessage('getAllComments')
-  async handleMessage(@MessageBody("bookId") bookId: string) {
+  async getAllComments(@MessageBody("bookId", IdValidationPipe) bookId: string) {
     return await this.commentsService.findAllBookComment(bookId);
   }
 }
