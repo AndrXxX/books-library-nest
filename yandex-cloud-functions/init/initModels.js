@@ -1,4 +1,4 @@
-const comicsStore = require('../store/ComicsStore');
+const charactersStore = require("../store/CharactersStore");
 
 const values = [
   {
@@ -22,8 +22,8 @@ const values = [
 ];
 
 module.exports = () => {
-  if (comicsStore.getAll().length) {
+  if (charactersStore.getAll().length) {
     return;
   }
-  values.forEach(item => comicsStore.add(item))
+  values.forEach(item => charactersStore.add(item))
 };
