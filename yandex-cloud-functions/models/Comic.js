@@ -1,20 +1,11 @@
-const {v4: uuid} = require("uuid");
+const { Schema, model } = require('mongoose');
 
-class Comic {
-  constructor(id = uuid()) {
-    this.id = id;
-    this.name = '';
-  }
+const  comicSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+});
 
-  fillByParams(params = {}) {
-    const skipKeys = ['id'];
-    for (const key in this) {
-      if (skipKeys.includes(key) || !this.hasOwnProperty(key) || !params[key]) {
-        continue;
-      }
-      this[key] = params[key];
-    }
-  }
-}
+module.exports = model('Comic', comicSchema);
 
-module.exports = Comic;
