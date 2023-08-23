@@ -15,7 +15,7 @@ router.get('/character', (req, res) => {
   if (item) {
     return res.json(item);
   }
-  res.status(404).json(null);
+  res.status(404).json("Not found");
 });
 
 module.exports = router;
