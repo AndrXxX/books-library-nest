@@ -50,7 +50,7 @@ services:
       - DB_URL=mongodb://${DB_USERNAME:-root}:${DB_PASSWORD:-password}@mongodb:${MONGODB_PORT:-27017}/yandex-cloud-functions
     ports:
       - ${YANDEX_CLOUD_FUNCTIONS_PORT:-3003}:80
-    command: bash -c "npm install && npm run start:dev"
+    command: bash -c "npm install && npm run start"
     depends_on:
       - mongodb
 
