@@ -21,16 +21,4 @@ class Character {
   }
 }
 
-// id: 1,
-//   name: "Имя персонажа",
-//   description: "описание...",
-//   modified: "2020-07-21",
-//   thumbnail: "http://...",
-//   comics: [
-//   {
-//     id: 1,
-//     name: "Spider-Man: 101 Ways to End the Clone Saga (1997) #1"
-//   }
-// ]
-
 module.exports = Character;
