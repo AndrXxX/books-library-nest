@@ -6,7 +6,7 @@ class CharacterStore {
     return CharacterModel.find().populate('comics').select('-__v');
   }
   async get(id) {
-    return CharacterModel.findOne({id});
+    return CharacterModel.findById(id);
   }
   async add(rawParams) {
     let { comics, ...params } = rawParams;
