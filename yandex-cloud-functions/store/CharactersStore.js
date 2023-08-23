@@ -1,32 +1,27 @@
-const Character = require("../models/Character");
+const CharacterModel = require("../models/Character");
 const comicsStore = require("./ComicsStore");
 
-const charactersStore = {
-  items: [],
-  getAll: function() {
-    return this.items.slice();
-  },
-  add: function(params) {
-    const character = new Character();
-    character.fillByParams(params)
-    params.comics && params.comics.forEach(comic => {
-      const comicModel = comicsStore.getByName(comic.name) || comicsStore.add(comic);
-      character.comics.push(comicModel);
-    })
-    this.items.push(character);
-    return character;
-  },
-  get: function(id) {
-    return this.items.find((item) => item.id === id);
-  },
-  delete: function(id) {
-    const index = this.items.findIndex((item) => item.id === id);
-    if (index !== -1) {
-      this.items.splice(index, 1);
-      return true;
+class CharacterStore {
+  async getAll() {
+    return CharacterModel.find().populate('comics').select('-__v');
+  }
+  async get(id) {
+    return CharacterModel.findOne({id});
+  }
+  async add(params) {
+    const character = new CharacterModel(params);
+    character.comics = [];
+    if (!params.comics) {
+      await character.save();
+      return character;
     }
-    return false;
-  },
-};
+    const comics = await Promise.all(params.comics.map(async rawComics => {
+      return await comicsStore.create(rawComics);
+    }))
+    comics.forEach(comic => character.comics.push(comic.id))
+    await character.save();
+    return character;
+  }
+}
 
-module.exports = charactersStore;
+module.exports = new CharacterStore();

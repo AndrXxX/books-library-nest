@@ -1,30 +1,14 @@
-const Comic = require("../models/Comic");
+const ComicModel = require("../models/Comic");
 
-const comicsStore = {
-  items: [],
-  getAll: function() {
-    return this.items.slice();
-  },
-  add: function(params) {
-    const comic = new Comic();
-    comic.fillByParams(params)
-    this.items.push(comic);
+class ComicsStore {
+  async create(data) {
+    const comic = (await this.findByName(data.name)) || new ComicModel(data);
+    await comic.save();
     return comic;
-  },
-  get: function(id) {
-    return this.items.find((item) => item.id === id);
-  },
-  getByName: function(name) {
-    return this.items.find((item) => item.name === name);
-  },
-  delete: function(id) {
-    const index = this.items.findIndex((item) => item.id === id);
-    if (index !== -1) {
-      this.items.splice(index, 1);
-      return true;
-    }
-    return false;
-  },
-};
+  }
+  async findByName(name) {
+    return ComicModel.findById(name).select('-__v');
+  }
+}
 
-module.exports = comicsStore;
+module.exports = new ComicsStore();
