@@ -8,17 +8,14 @@ class CharacterStore {
   async get(id) {
     return CharacterModel.findOne({id});
   }
-  async add(params) {
+  async add(rawParams) {
+    let { comics, ...params } = rawParams;
     const character = new CharacterModel(params);
     character.comics = [];
-    if (!params.comics) {
-      await character.save();
-      return character;
-    }
-    const comics = await Promise.all(params.comics.map(async rawComics => {
-      return await comicsStore.create(rawComics);
+    const comicsModels = await Promise.all((comics || []).map(async rawComic => {
+      return await comicsStore.create(rawComic);
     }))
-    comics.forEach(comic => character.comics.push(comic.id))
+    comicsModels.forEach(comic => character.comics.push(comic._id))
     await character.save();
     return character;
   }

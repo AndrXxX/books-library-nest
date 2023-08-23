@@ -22,7 +22,7 @@ const values = [
 ];
 
 module.exports = async () => {
-  if (await charactersStore.getAll().length) {
+  if ((await charactersStore.getAll()).length) {
     return;
   }
   values.forEach(item => charactersStore.add(item))

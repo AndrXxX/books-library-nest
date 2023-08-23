@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model} = require('mongoose');
 
 const characterSchema = new Schema({
   name: {
@@ -21,7 +21,7 @@ const characterSchema = new Schema({
   comics: {
     type: [Schema.Types.ObjectId],
     ref: 'Comic',
-    required: true,
+    default: [],
   },
 });
 
