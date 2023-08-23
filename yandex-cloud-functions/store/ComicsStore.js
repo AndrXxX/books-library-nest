@@ -14,6 +14,9 @@ const comicsStore = {
   get: function(id) {
     return this.items.find((item) => item.id === id);
   },
+  getByName: function(name) {
+    return this.items.find((item) => item.name === name);
+  },
   delete: function(id) {
     const index = this.items.findIndex((item) => item.id === id);
     if (index !== -1) {

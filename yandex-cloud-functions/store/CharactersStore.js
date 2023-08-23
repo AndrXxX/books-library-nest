@@ -1,4 +1,5 @@
 const Character = require("../models/Character");
+const comicsStore = require("./ComicsStore");
 
 const charactersStore = {
   items: [],
@@ -6,10 +7,14 @@ const charactersStore = {
     return this.items.slice();
   },
   add: function(params) {
-    const comic = new Character();
-    comic.fillByParams(params)
-    this.items.push(comic);
-    return comic;
+    const character = new Character();
+    character.fillByParams(params)
+    params.comics && params.comics.forEach(comic => {
+      const comicModel = comicsStore.getByName(comic.name) || comicsStore.add(comic);
+      character.comics.push(comicModel);
+    })
+    this.items.push(character);
+    return character;
   },
   get: function(id) {
     return this.items.find((item) => item.id === id);

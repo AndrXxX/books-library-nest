@@ -11,7 +11,7 @@ class Character {
   }
 
   fillByParams(params = {}) {
-    const skipKeys = ['id'];
+    const skipKeys = ['id', 'comics'];
     for (const key in this) {
       if (skipKeys.includes(key) || !this.hasOwnProperty(key) || !params[key]) {
         continue;
