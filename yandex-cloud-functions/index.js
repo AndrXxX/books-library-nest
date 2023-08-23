@@ -1,10 +1,12 @@
 const express = require("express");
 const serverless = require('serverless-http');
-const comicsStore = require('store/ComicsStore');
+const comicsStore = require('./store/ComicsStore');
+const initModels = require('./init/initModels');
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+initModels();
 
 app.get('/api/characters', (req, res) => {
   res.json(comicsStore.getAll());
