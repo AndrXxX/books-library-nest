@@ -13,18 +13,18 @@ router.get('/', (req, res) => {
   res.render('index', {user: req.user});
 });
 
-router.get('/account',
+router.get('/profile',
   isAuthenticated,
   (req, res) => {
     res.json({user: req.user});
   }
 );
 
-router.get('/auth/yandex',
+router.get('/login',
   passport.authenticate('yandex')
 );
 
-router.get('/auth/yandex/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.logout(() => {
     res.redirect("/");
   });
