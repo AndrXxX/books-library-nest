@@ -32,7 +32,7 @@ app.set('view engine', 'ejs');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api', rootRouter);
+app.use('/', rootRouter);
 
 app.listen(config.port, () => {
   console.log(`server start http://localhost:${config.port}`)

@@ -25,7 +25,7 @@ router.get('/auth/yandex',
 );
 
 router.get('/auth/yandex/callback',
-  passport.authenticate('yandex', { failureRedirect: '/' }, () => {}),
+  passport.authenticate('yandex', { failureRedirect: '/' }),
   (req, res) => {
     res.redirect('/');
   }
