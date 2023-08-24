@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 router.get('/profile',
   isAuthenticated,
   (req, res) => {
-    res.json({user: req.user});
+    res.render('profile', {user: req.user});
   }
 );
 
