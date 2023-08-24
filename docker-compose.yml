@@ -54,3 +54,19 @@ services:
     depends_on:
       - mongodb
 
+  yandex-passport:
+    image: node:18.16
+    volumes:
+      - ./yandex-passport:/app
+    working_dir: /app
+    environment:
+      - PORT=80
+      - YANDEX_CLIENT_ID=${YANDEX_CLIENT_ID:-""}
+      - YANDEX_CLIENT_SECRET=${YANDEX_CLIENT_SECRET:-""}
+      - YANDEX_CALLBACK_URL=${YANDEX_CALLBACK_URL:-""}
+    ports:
+      - ${YANDEX_PASSPORTS_PORT:-3004}:80
+    command: bash -c "npm install && npm run dev"
+    depends_on:
+      - mongodb
+
