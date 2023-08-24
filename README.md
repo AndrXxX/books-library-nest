@@ -3,12 +3,12 @@
 ### Блок 2: Nest.js
 
 
-#### Домашнее задание к занятию «3.2. Yandex Cloud Functions»
+#### Домашнее задание к занятию «3.3. API Yandex ID»
 
-ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/014-Yandex-Cloud-Functions).
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/015-Yandex-ID).
 
 Файлы для проверки:
-* [yandex-cloud-functions](yandex-cloud-functions)
+* [yandex-passport](yandex-passport)
 
 <details>
 <summary>Включает в себя предыдущие задания</summary>
@@ -76,6 +76,15 @@
 Файлы для проверки:
 * [app.gateway.ts](books-library/src/app.gateway.ts) (AppGateway)
 * [index.html](books-library/http/index.html) (для тестирования WebSocket)
+</details>
+
+<details>
+<summary>Домашнее задание к занятию «3.2. Yandex Cloud Functions»</summary>
+
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/014-Yandex-Cloud-Functions).
+
+Файлы для проверки:
+* [yandex-cloud-functions](yandex-cloud-functions)
 </details>
 
 </details>
