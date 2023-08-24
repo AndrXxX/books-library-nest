@@ -9,6 +9,5 @@ app.use('/', rootRouter);
 
 const handler = serverless(app);
 module.exports.handler = async (event, context) => {
-  mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true });
   return await handler(event, context);
 };
