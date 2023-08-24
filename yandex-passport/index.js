@@ -1,9 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const YandexStrategy = require('passport-yandex').Strategy;
-
-const YANDEX_CLIENT_ID = "";
-const YANDEX_CLIENT_SECRET = "";
+const config = require('./config');
 
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -21,9 +19,9 @@ passport.deserializeUser((obj, done) => {
 });
 
 passport.use(new YandexStrategy({
-    clientID: YANDEX_CLIENT_ID,
-    clientSecret: YANDEX_CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/yandex/callback"
+    clientID: config.yandexClientId,
+    clientSecret: config.yandexClientSecret,
+    callbackURL: config.yandexCallbackUrl,
   },
   (accessToken, refreshToken, profile, done) => {
     process.nextTick(() => {
@@ -64,7 +62,6 @@ app.get('/auth/yandex/callback',
   }
 );
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`server start http://localhost:${PORT}`)
+app.listen(config.port, () => {
+  console.log(`server start http://localhost:${config.port}`)
 });
