@@ -24,6 +24,12 @@ router.get('/auth/yandex',
   passport.authenticate('yandex')
 );
 
+router.get('/auth/yandex/logout', (req, res) => {
+  req.logout(() => {
+    res.redirect("/");
+  });
+});
+
 router.get('/auth/yandex/callback',
   passport.authenticate('yandex', { failureRedirect: '/' }),
   (req, res) => {
