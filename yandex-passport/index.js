@@ -2,13 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const YandexStrategy = require('passport-yandex').Strategy;
 const config = require('./config');
-
-function isAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/');
-}
+const rootRouter = require('./routes/root');
 
 passport.serializeUser((user, done) => {
   done(null, user);
@@ -38,27 +32,7 @@ app.set('view engine', 'ejs');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req, res) => {
-  res.render('index', {user: req.user});
-});
-
-app.get('/account',
-  isAuthenticated,
-  (req, res) => {
-    res.json({user: req.user});
-  }
-);
-
-app.get('/auth/yandex',
-  passport.authenticate('yandex')
-);
-
-app.get('/auth/yandex/callback',
-  passport.authenticate('yandex', {failureRedirect: '/'}),
-  (req, res) => {
-    res.redirect('/');
-  }
-);
+app.use('/api', rootRouter);
 
 app.listen(config.port, () => {
   console.log(`server start http://localhost:${config.port}`)
