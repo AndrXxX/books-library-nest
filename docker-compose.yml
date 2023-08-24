@@ -64,6 +64,7 @@ services:
       - YANDEX_CLIENT_ID=${YANDEX_CLIENT_ID:-""}
       - YANDEX_CLIENT_SECRET=${YANDEX_CLIENT_SECRET:-""}
       - YANDEX_CALLBACK_URL=${YANDEX_CALLBACK_URL:-""}
+      - COOKIE_SECRET=${COOKIE_SECRET:-COOKIE_SECRET}
     ports:
       - ${YANDEX_PASSPORTS_PORT:-3004}:80
     command: bash -c "npm install && npm run dev"

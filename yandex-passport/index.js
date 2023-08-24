@@ -32,9 +32,7 @@ passport.use(new YandexStrategy({
 
 const app = express();
 app.use(require('cookie-parser')());
-app.use(require('express-session')({
-  secret: process.env.COOKIE_SECRET || "COOKIE_SECRET",
-}));
+app.use(require('express-session')({ secret: config.cookieSecret }));
 
 app.set('view engine', 'ejs');
 app.use(passport.initialize());
