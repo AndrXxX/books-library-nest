@@ -9,8 +9,8 @@ import { Book, BookDocument } from "./mongo.schemas/book.schema";
 export class BooksService {
   constructor(
     @InjectModel(Book.name) private BookModel: Model<BookDocument>,
-    @InjectConnection() private connection: Connection,) {
-  }
+    @InjectConnection() private connection: Connection,
+  ) {}
 
   public async create(data: iCreateBookDto): Promise<BookDocument> {
     const book = new this.BookModel(data);
