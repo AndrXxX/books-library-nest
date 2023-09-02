@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { InjectConnection, InjectModel } from "@nestjs/mongoose";
-import { Connection, Model } from "mongoose";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model } from "mongoose";
 import { iCreateBookDto } from "./interfaces/book-create.interface";
 import { UpdateBookDto } from "./interfaces/book-update.interface";
 import { Book, BookDocument } from "./mongo.schemas/book.schema";
@@ -9,7 +9,6 @@ import { Book, BookDocument } from "./mongo.schemas/book.schema";
 export class BooksService {
   constructor(
     @InjectModel(Book.name) private BookModel: Model<BookDocument>,
-    @InjectConnection() private connection: Connection,
   ) {}
 
   public async create(data: iCreateBookDto): Promise<BookDocument> {
