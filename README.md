@@ -3,13 +3,12 @@
 ### Блок 2: Nest.js
 
 
-#### Домашнее задание к занятию «2.8. Вебсокеты в NestJS»
+#### Домашнее задание к занятию «3.2. Yandex Cloud Functions»
 
-ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/016-websocket-NESTJS).
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/014-Yandex-Cloud-Functions).
 
 Файлы для проверки:
-* [app.gateway.ts](books-library/src/app.gateway.ts) (AppGateway)
-* [index.html](books-library/http/index.html) (для тестирования WebSocket)
+* [yandex-cloud-functions](yandex-cloud-functions)
 
 <details>
 <summary>Включает в себя предыдущие задания</summary>
@@ -67,6 +66,16 @@
 * [books.service.spec.ts](books-library/src/modules/books/books.service.spec.ts)
 * [books.controller.spec.ts](books-library/src/modules/books/books.controller.spec.ts)
 * [e2e.books.service.spec.ts](books-library/src/modules/books/e2e.books.service.spec.ts)
+</details>
+
+<details>
+<summary>Домашнее задание к занятию «2.8. Вебсокеты в NestJS»</summary>
+
+ТЗ доступно по [ссылке](https://github.com/netology-code/ndtnf-homeworks/tree/master/016-websocket-NESTJS).
+
+Файлы для проверки:
+* [app.gateway.ts](books-library/src/app.gateway.ts) (AppGateway)
+* [index.html](books-library/http/index.html) (для тестирования WebSocket)
 </details>
 
 </details>
