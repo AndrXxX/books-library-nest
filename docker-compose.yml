@@ -47,7 +47,7 @@ services:
     working_dir: /app
     environment:
       - PORT=80
-      - DB_URL=mongodb://${DB_USERNAME:-root}:${DB_PASSWORD:-password}@mongodb:${MONGODB_PORT:-27017}/yandex-cloud-functions
+      - DB_URL=mongodb://${DB_USERNAME:-root}:${DB_PASSWORD:-password}@mongodb:${MONGODB_PORT:-27017}/${DB_NAME:-library}
     ports:
       - ${YANDEX_CLOUD_FUNCTIONS_PORT:-3003}:80
     command: bash -c "npm install && npm run dev"

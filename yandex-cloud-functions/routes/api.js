@@ -6,14 +6,14 @@ const router = express.Router();
 
 initModels();
 
-router.get('/characters', (req, res) => {
-  res.json(charactersStore.getAll());
+router.get('/characters', async (req, res) => {
+  res.json(await charactersStore.getAll());
 });
 
 router.get('/character',
-  (req, res, next) => {
+  async (req, res, next) => {
     const id = req.query.id;
-    const item = charactersStore.get(id);
+    const item = await charactersStore.get(id);
     if (!item) {
       return next();
     }

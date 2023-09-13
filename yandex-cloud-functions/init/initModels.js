@@ -21,8 +21,8 @@ const values = [
   }
 ];
 
-module.exports = () => {
-  if (charactersStore.getAll().length) {
+module.exports = async () => {
+  if ((await charactersStore.getAll()).length) {
     return;
   }
   values.forEach(item => charactersStore.add(item))
