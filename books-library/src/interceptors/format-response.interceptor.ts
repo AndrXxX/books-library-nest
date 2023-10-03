@@ -8,8 +8,8 @@ export class FormatResponseInterceptorInterceptor implements NestInterceptor {
     return next
       .handle()
       .pipe(
-        map((data: any) => ({ status: "success", data })),
-        catchError((err: any) => of({ status: "fail", data: err?.message || "Ошибка при выполнении запроса" })),
+        map((data: any) => ({ success: true, data })),
+        catchError((err: any) => of({ success: false, data: err?.message || "Ошибка при выполнении запроса" })),
       );
   }
 
